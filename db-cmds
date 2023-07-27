@@ -1,0 +1,7 @@
+test
+Administrator
+Mukesh@123
+-----------------------------------------
+sudo systemctl start couchbase
+
+sudo systemctl status couchbase

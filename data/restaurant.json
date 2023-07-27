@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Taste of Italy",
+    "description": "Authentic Italian cuisine with a modern twist.",
+    "cuisine": "Italian",
+    "address": {
+      "street": "456 Olive Avenue",
+      "city": "New York",
+      "state": "NY",
+      "country": "USA",
+      "zipcode": "10001"
+    },
+    "contact": {
+      "phone": "123-456-7890",
+      "email": "info@tasteofitaly.com"
+    },
+    "menu": [
+      {
+        "name": "Margherita Pizza",
+        "description": "Traditional pizza with fresh tomatoes and mozzarella.",
+        "price": 10.99,
+        "category": "Pizza",
+        "image": "https://example.com/images/margherita_pizza.jpg"
+      },
+      {
+        "name": "Pasta Carbonara",
+        "description": "Spaghetti with bacon, eggs, and cheese.",
+        "price": 12.99,
+        "category": "Pasta",
+        "image": "https://example.com/images/pasta_carbonara.jpg"
+      }
+    ],
+    "ratings": [],
+    "averageRating": 0,
+    "createdAt": "2023-07-26T12:00:00Z",
+    "updatedAt": "2023-07-26T12:00:00Z"
+  },
+  {
+    "name": "Sushi Delight",
+    "description": "Exquisite Japanese sushi and sashimi.",
+    "cuisine": "Japanese",
+    "address": {
+      "street": "789 Sakura Lane",
+      "city": "Los Angeles",
+      "state": "CA",
+      "country": "USA",
+      "zipcode": "90001"
+    },
+    "contact": {
+      "phone": "987-654-3210",
+      "email": "info@sushidelight.com"
+    },
+    "menu": [
+      {
+        "name": "Rainbow Roll",
+        "description": "Assorted sashimi over California roll.",
+        "price": 18.99,
+        "category": "Sushi",
+        "image": "https://example.com/images/rainbow_roll.jpg"
+      },
+      {
+        "name": "Salmon Nigiri",
+        "description": "Fresh salmon slices on a bed of sushi rice.",
+        "price": 5.99,
+        "category": "Nigiri",
+        "image": "https://example.com/images/salmon_nigiri.jpg"
+      }
+    ],
+    "ratings": [],
+    "averageRating": 0,
+    "createdAt": "2023-07-26T12:00:00Z",
+    "updatedAt": "2023-07-26T12:00:00Z"
+  },
+]
+
