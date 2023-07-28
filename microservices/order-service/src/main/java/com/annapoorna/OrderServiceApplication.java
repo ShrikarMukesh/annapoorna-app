@@ -1,4 +1,4 @@
-package com.annapoorna.restaurantservice;
+package com.annapoorna;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,10 +18,10 @@ import io.swagger.v3.oas.annotations.info.Info;
 				)
 		)
 @EnableDiscoveryClient
-public class RestaurantServiceApplication {
+public class OrderServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RestaurantServiceApplication.class, args);
+		SpringApplication.run(OrderServiceApplication.class, args);
 	}
 
 }
