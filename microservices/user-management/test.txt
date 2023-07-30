@@ -1,0 +1,7 @@
+Rest Owners
+Delivery Boys
+Admins
+Support Team
+Bot accounts
+
+Roles ENUM
