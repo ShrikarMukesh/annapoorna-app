@@ -1,8 +1,11 @@
 package com.annapoorna.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import com.annapoorna.enity.Order;
@@ -16,7 +19,13 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class OrderServiceImpl implements OrderService {
 
+	@Value("${order.kafka.topic}")
+	private String topic;
+
 	private final OrderRepository orderRepository;
+
+	@Autowired
+	private KafkaTemplate<String, Order> kafkaTemplate;
 
 	@Autowired
 	public OrderServiceImpl(OrderRepository orderRepository) {
@@ -47,11 +56,20 @@ public class OrderServiceImpl implements OrderService {
 		if (order.getItems().isEmpty()) {
 			throw new IllegalArgumentException("Order should have at least one item.");
 		}
+		// Now, save the order in the database
+		Order response = orderRepository.save(order);
+		sendOrderToKafka(response);
 
 		return orderRepository.save(order);
 	}
 
+	private void sendOrderToKafka(Order response) {
 
+		if (Optional.ofNullable(response).isPresent()) {
+			// Publish the order to a Kafka topic before saving it
+			kafkaTemplate.send(topic, response);
+		}
+	}
 
 	@Override
 	public List<Order> findAllOrders() {

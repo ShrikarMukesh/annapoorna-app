@@ -1,0 +1,9 @@
+docker exec -it kafka bash
+clearing the kafka bash cmds:
+  1) printf "\033c"
+  2) alias cls='printf "\033c"'
+  
+kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+--> Consumer
+kafka-console-consumer.sh --topic orders-topic --from-beginning --bootstrap-server localhost:9092
