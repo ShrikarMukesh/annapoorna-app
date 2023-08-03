@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
-import com.annapoorna.enity.Order;
-import com.annapoorna.enity.OrderStatus;
+import com.annapoorna.entity.Order;
+import com.annapoorna.entity.OrderStatus;
 import com.annapoorna.exception.ResourceNotFoundException;
 import com.annapoorna.repository.OrderRepository;
 

@@ -1,4 +1,4 @@
-package com.annapoorna.enity;
+package com.annapoorna.entity;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Payment {
 	@NotBlank(message = "Payment ID cannot be blank")
-	private String id;
+	private String paymentId;
 
 	@NotBlank(message = "Order ID cannot be blank")
 	private String orderId;
@@ -21,7 +21,6 @@ public class Payment {
 	private double amount;
 
 	@NotNull(message = "Payment status cannot be null")
-	private PaymentStatus status;
+	private PaymentStatus paymentStatus;
 
-	// getters and setters
 }

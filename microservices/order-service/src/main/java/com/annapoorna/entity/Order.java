@@ -1,4 +1,4 @@
-package com.annapoorna.enity;
+package com.annapoorna.entity;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,7 +12,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
 import java.util.List;
 
 @Document(collection = "orders")
@@ -23,11 +22,10 @@ import java.util.List;
 public class Order {
 	
     @Id
-    private String id;
+    private String orderId;
 
     @NotBlank(message = "Customer ID cannot be blank")
     private String customerId;
-
 
 	@NotBlank(message = "Restaurant ID cannot be blank")
 	private String restaurantID;

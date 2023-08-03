@@ -1,4 +1,4 @@
-package com.annapoorna.enity;
+package com.annapoorna.entity;
 
 public enum PaymentStatus {
     PENDING,

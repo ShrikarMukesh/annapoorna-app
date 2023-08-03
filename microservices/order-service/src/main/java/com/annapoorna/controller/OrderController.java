@@ -6,7 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.annapoorna.enity.Order;
+import com.annapoorna.entity.Order;
 import com.annapoorna.service.OrderServiceImpl;
 
 import io.swagger.v3.oas.annotations.Operation;

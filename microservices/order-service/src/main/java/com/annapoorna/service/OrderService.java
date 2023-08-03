@@ -2,8 +2,7 @@ package com.annapoorna.service;
 
 import org.springframework.stereotype.Service;
 
-import com.annapoorna.enity.Order;
-
+import com.annapoorna.entity.Order;
 
 import java.util.List;
 

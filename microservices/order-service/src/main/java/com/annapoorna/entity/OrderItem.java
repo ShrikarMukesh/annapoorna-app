@@ -1,4 +1,4 @@
-package com.annapoorna.enity;
+package com.annapoorna.entity;
 
 
 
@@ -25,5 +25,4 @@ public class OrderItem {
 	@Positive(message = "Quantity must be positive")
 	private int quantity;
 
-	// getters and setters
 }

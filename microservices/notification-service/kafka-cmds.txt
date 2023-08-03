@@ -4,7 +4,15 @@ clearing the kafka bash cmds:
   1) printf "\033c"
   2) alias cls='printf "\033c"'
   
+-----------------------------------
+List Topics
 kafka-topics.sh --bootstrap-server localhost:9092 --list (or) kafka-topics.sh --list --bootstrap-server localhost:9092
+
+kafka-consumer-groups.sh --describe --bootstrap-server localhost:9092 --group my_group
+kafka-consumer-groups.sh --delete --bootstrap-server localhost:9092 --orders-group-id
+------------------------------------
+Consumer List:
+kafka-consumer-groups.sh --list --bootstrap-server localhost:9092
 
 --> creating topic with partitions and replication-factor
 kafka-topics.sh --bootstrap-server localhost:9092 --create --partitions 4 --replication-factor 1 --topic orders-topic
@@ -18,6 +26,8 @@ kafka-console-consumer.sh --topic orders-topic --from-beginning --bootstrap-serv
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 delete topic -->
 kafka-topics.sh --bootstrap-server localhost:9092 --delete --topic orders-topic
+
+
 --------------------------------------------------------------------------------------------------
 --> Producer With key
 kafka-console-producer.sh --bootstrap-server localhost:9092 --topic test-topic --property "key.separator= - " --property "print.key=true" 
