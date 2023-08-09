@@ -5,18 +5,22 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+//import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
-import com.annapoorna.dto.AuthRequest;
+import com.annapoorna.auth.AuthRequest;
+import com.annapoorna.auth.AuthenticationResponse;
+import com.annapoorna.auth.JwtService;
+import com.annapoorna.dto.CustomerResponseDTO;
 import com.annapoorna.entity.Customer;
 import com.annapoorna.service.CustomerServiceImpl;
-import com.annapoorna.service.JwtService;
 
-import jakarta.validation.Valid;
+//import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/customers")
@@ -41,7 +45,7 @@ public class CustomerController {
 	}
 
 	@PostMapping("/register")
-	public ResponseEntity<Customer> register(@Valid @RequestBody Customer customer) {
+	public ResponseEntity<CustomerResponseDTO> register(@Valid @RequestBody Customer customer) {
 		return ResponseEntity.ok(customerService.register(customer));
 	}
 
@@ -52,7 +56,6 @@ public class CustomerController {
 	}
 
 	@GetMapping("/{email}")
-	@PreAuthorize("hasAuthority('ADMIN')")
 	public ResponseEntity<Customer> findByEmail(@PathVariable String email) {
 		return ResponseEntity.ok(customerService.findByEmail(email));
 	}
@@ -73,7 +76,24 @@ public class CustomerController {
 		} else {
 			throw new UsernameNotFoundException("invalid user request !");
 		}
+	}
 
+	@PostMapping("/authentication")
+	public AuthenticationResponse authenticationAndGetToken(@RequestBody AuthRequest authRequest) {
 
+		authenticationManager.authenticate(
+				new UsernamePasswordAuthenticationToken(
+						authRequest.getUsername(),
+						authRequest.getPassword())
+				);
+		var user = customerService.findByEmail(authRequest.getUsername());
+		var token = jwtService.generateToken(user.getUserName());
+		return AuthenticationResponse.builder().token(token).build();
+
+		//		if (authentication.isAuthenticated()) {
+		//			return jwtService.generateToken(authRequest.getUsername());
+		//		} else {
+		//			throw new UsernameNotFoundException("invalid user request !");
+		//		}
 	}
 }

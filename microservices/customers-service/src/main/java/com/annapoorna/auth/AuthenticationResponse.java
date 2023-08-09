@@ -1,14 +1,14 @@
-package com.annapoorna.dto;
+package com.annapoorna.auth;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthRequest {
-
-    private String username ;
-    private String password;
+public class AuthenticationResponse {
+	private String token;	
 }

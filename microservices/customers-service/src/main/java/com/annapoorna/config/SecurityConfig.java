@@ -17,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.annapoorna.auth.UserInfoUserDetailsService;
 import com.annapoorna.filter.JwtAuthFilter;
 
 @Configuration
@@ -44,12 +45,16 @@ public class SecurityConfig {
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		return http.csrf().disable()
+		return http
+				.csrf()
+				.disable()
 				.authorizeHttpRequests()
-				.requestMatchers("/api/v1/customers/welcome","/api/v1/customers/register").permitAll()
+				.antMatchers("/api/v1/customers/welcome","/api/v1/customers/register", "/api/v1/customers/email").permitAll() // It can be called as white listed
 				.and()
-				.authorizeHttpRequests().requestMatchers("/api/v1/customers/**")
-				.authenticated().and()
+				.authorizeHttpRequests()
+				.antMatchers("/api/v1/customers/**").hasAnyRole("ADMIN")
+				//.authenticated()
+				.and()
 				.sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				.and()

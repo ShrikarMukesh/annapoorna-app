@@ -1,4 +1,4 @@
-package com.annapoorna.config;
+package com.annapoorna.auth;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -14,12 +14,12 @@ public class UserInfoUserDetails implements UserDetails {
 
 
 	private static final long serialVersionUID = 1L;
-	private String name;
+	private String username;
 	private String password;
 	private List<GrantedAuthority> authorities;
 
 	public UserInfoUserDetails(Customer customer) {
-		name=customer.getUserName();
+		username=customer.getUserName();
 		password=customer.getPassword();
 		authorities = customer.getRoles().stream()
 				.map(role -> new SimpleGrantedAuthority(role.name()))
@@ -42,7 +42,7 @@ public class UserInfoUserDetails implements UserDetails {
 
 	@Override
 	public String getUsername() {
-		return name;
+		return username;
 	}
 
 	@Override

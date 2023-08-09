@@ -1,4 +1,4 @@
-package com.annapoorna.config;
+package com.annapoorna.auth;
 
 import com.annapoorna.entity.Customer;
 import com.annapoorna.repository.CustomerRepository;
