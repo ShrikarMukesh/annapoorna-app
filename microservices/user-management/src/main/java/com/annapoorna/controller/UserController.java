@@ -1,7 +1,5 @@
 package com.annapoorna.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,7 +7,7 @@ import com.annapoorna.entity.User;
 import com.annapoorna.service.UserServiceImpl;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/test")
 public class UserController {
 
 	private final UserServiceImpl serviceImpl;
@@ -19,17 +17,12 @@ public class UserController {
 		this.serviceImpl = serviceImpl;
 	}
 
-	@GetMapping
-	public List<User> getAllUsers() {
-		return serviceImpl.getAllUsers();
-	}
-
 	@GetMapping("/{id}")
 	public User getUser(@PathVariable String id) {
 		return serviceImpl.getUser(id);
 	}
 
-	@PostMapping
+	@PostMapping("/create")
 	public User createUser(@RequestBody User user) {
 		return serviceImpl.saveUser(user);
 	}

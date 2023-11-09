@@ -28,12 +28,15 @@ public class User {
 	@Id
 	private String id;
 
-	@NotBlank(message = "Username cannot be blank")
+	@NotBlank(message = "firstName cannot be blank")
 	@Size(min = 3, max = 50, message = "firstName must be between 3 and 50 characters")
 	private String firstName;
-
+	
 	@Size(min = 3, max = 50, message = "lastName must be between 3 and 50 characters")
 	private String lastName;
+	
+	@Size(min = 3, max = 50, message = "userName must be between 3 and 50 characters")
+	private String username;
 
 	@NotBlank(message = "Email cannot be blank")
 	@Email(message = "Email should be valid")

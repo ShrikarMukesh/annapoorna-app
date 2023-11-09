@@ -1,19 +1,27 @@
 package com.annapoorna.controller;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
+
+import java.util.List;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.annapoorna.entity.User;
+import com.annapoorna.service.UserServiceImpl;
+
 @RestController
 @RequestMapping("/admin")
 public class AdminController {
-    
-//    @PreAuthorize("hasRole('ADMIN')")
-//    @GetMapping("/dashboard")
-//    public ResponseEntity<?> getAdminDashboard() {
-//        // ... method implementation ...
-//    }
+
+	private final UserServiceImpl serviceImpl;
+
+	public AdminController(final UserServiceImpl serviceImpl){
+		this.serviceImpl = serviceImpl;	
+	}
+
+	@GetMapping("/getAllUsers")
+	public List<User> getAllUsers() {
+		return serviceImpl.getAllUsers();
+	}
 }
-			
