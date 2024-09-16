@@ -30,7 +30,7 @@ public class RatingAndReviewController {
         return ratingAndReviewService.getRatingsAndReviewsByUserId(userId);
     }
 
-    @GetMapping("/user")
+    @GetMapping("/user/{username}")
     public List<RatingAndReview> getRatingsAndReviewsByUsername(@RequestParam String username) {
         return ratingAndReviewService.getRatingsAndReviewsByUsername(username);
     }
