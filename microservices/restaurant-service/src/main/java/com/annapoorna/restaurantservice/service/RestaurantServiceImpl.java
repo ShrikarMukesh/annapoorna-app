@@ -36,7 +36,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 	public Restaurant updateRestaurant(String id, Restaurant updatedRestaurant) {
 		Restaurant existingRestaurant = restaurantRepository.findById(id).orElse(null);
 		if (existingRestaurant != null) {
-			updatedRestaurant.setId(existingRestaurant.getId());
+			updatedRestaurant.setRestaurantId(existingRestaurant.getRestaurantId());
 			return restaurantRepository.save(updatedRestaurant);
 		}
 		return null;

@@ -1,0 +1,126 @@
+[
+  {
+    "name": "Leon's - Burgers & Wings",
+    "description": "A famous burger joint known for its delicious burgers and wings.",
+    "cuisines": ["American", "Snacks", "Turkish"],
+    "address": {
+      "street": "123 Main St",
+      "city": "Jeevanbhimanagar",
+      "state": "Karnataka",
+      "zipCode": "560075",
+      "country": "India"
+    },
+    "contact": {
+      "phone": "+919876543210",
+      "email": "contact@leons.com",
+      "website": "http://leons.com"
+    },
+    "menu": [
+      {
+        "name": "Chicken Burger",
+        "description": "Grilled chicken burger with cheese",
+        "price": 200
+      },
+      {
+        "name": "Buffalo Wings",
+        "description": "Spicy buffalo wings served with ranch",
+        "price": 150
+      }
+    ],
+    "ratings": [
+      {
+        "customerName": "John Doe",
+        "rating": 5,
+        "review": "Best burgers in town!"
+      },
+      {
+        "customerName": "Jane Smith",
+        "rating": 4,
+        "review": "Great wings but a bit pricey."
+      }
+    ]
+  },
+  {
+  "name": "Spice Garden",
+  "description": "An authentic Indian restaurant serving a wide variety of spicy dishes.",
+  "cuisines": ["Indian", "South Indian", "North Indian"],
+  "address": {
+    "street": "45 Residency Road",
+    "city": "Bangalore",
+    "state": "Karnataka",
+    "zipCode": "560001",
+    "country": "India"
+  },
+  "contact": {
+    "phone": "+919812345678",
+    "email": "info@spicegarden.com",
+    "website": "http://spicegarden.com"
+  },
+  "menu": [
+    {
+      "name": "Masala Dosa",
+      "description": "Crispy dosa stuffed with spicy potato filling",
+      "price": 120
+    },
+    {
+      "name": "Paneer Butter Masala",
+      "description": "Soft paneer cubes cooked in a rich, creamy tomato gravy",
+      "price": 220
+    }
+  ],
+  "ratings": [
+    {
+      "customerName": "Raj Kumar",
+      "rating": 5,
+      "review": "Authentic flavors and great ambiance."
+    },
+    {
+      "customerName": "Priya Mehra",
+      "rating": 4,
+      "review": "Loved the food but the service could be faster."
+    }
+  ]
+},
+  {
+    "name": "La Pino'z Pizza",
+    "description": "Famous for its giant slices and unique pizza toppings.",
+    "cuisines": ["Italian", "Pizza"],
+    "address": {
+      "street": "22 Commercial Street",
+      "city": "Indiranagar",
+      "state": "Karnataka",
+      "zipCode": "560038",
+      "country": "India"
+    },
+    "contact": {
+      "phone": "+918888888888",
+      "email": "support@lapinozpizza.com",
+      "website": "http://lapinozpizza.com"
+    },
+    "menu": [
+      {
+        "name": "Pepperoni Pizza",
+        "description": "Classic pizza topped with spicy pepperoni slices",
+        "price": 350
+      },
+      {
+        "name": "Veggie Overload",
+        "description": "Loaded with fresh vegetables and mozzarella cheese",
+        "price": 300
+      }
+    ],
+    "ratings": [
+      {
+        "customerName": "Amit Shah",
+        "rating": 4,
+        "review": "Great pizza, though a bit on the expensive side."
+      },
+      {
+        "customerName": "Sneha Kapoor",
+        "rating": 5,
+        "review": "Best pizza in the city! Highly recommend."
+      }
+    ]
+  }
+
+]

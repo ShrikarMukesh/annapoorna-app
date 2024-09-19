@@ -1,25 +1,32 @@
 package com.annapoorna.restaurantservice.entity;
 
-//import javax.validation.constraints.NotBlank;
-//import javax.validation.constraints.PositiveOrZero;
-
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.PositiveOrZero;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@AllArgsConstructor
-@Setter
+import java.time.LocalDateTime;
+
+@Data
 public class Rating {
-    @NotBlank(message = "User ID is required")
-    private String userId;
 
-    @PositiveOrZero(message = "Rating must be a positive value or zero")
-    private double rating;
+    @NotBlank(message = "Customer name is required")
+    private String customerName;
 
-    private String comment;
+    @Min(value = 0, message = "Rating must be between 0 and 5")
+    @Max(value = 5, message = "Rating must be between 0 and 5")
+    private int rating;
 
-    // Constructors, getters, setters, and other methods (omitted for brevity)
+    private String review;
+
+    private LocalDateTime createdAt;
+
+    // Constructor
+    public Rating() {
+        this.createdAt = LocalDateTime.now();
+    }
+
+    public int getRating() {
+        return rating;
+    }
 }

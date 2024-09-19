@@ -1,26 +1,21 @@
 package com.annapoorna.restaurantservice.entity;
 
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.validation.constraints.Pattern;
 
-//
-//import javax.validation.constraints.Email;
-//import javax.validation.constraints.NotBlank;
-@Getter
-@AllArgsConstructor
-@Setter
-@ToString
+import lombok.Data;
+
+@Data
 public class Contact {
+
     @NotBlank(message = "Phone number is required")
+    @Pattern(regexp = "^\\+?[0-9. ()-]{7,25}$", message = "Invalid phone number")
     private String phone;
 
     @NotBlank(message = "Email is required")
-    @Email(message = "Invalid email format")
+    @Pattern(regexp = ".+@.+\\..+", message = "Invalid email address")
     private String email;
 
-    // Constructors, getters, setters, and other methods (omitted for brevity)
+    @NotBlank(message = "Website is required")
+    private String website;
 }

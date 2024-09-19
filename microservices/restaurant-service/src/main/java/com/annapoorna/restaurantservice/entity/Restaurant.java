@@ -1,27 +1,21 @@
 package com.annapoorna.restaurantservice.entity;
 
-
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
 import java.time.LocalDateTime;
 import java.util.List;
+import lombok.Data;
 
+@Data
 @Document(collection = "restaurants")
-@Getter
-@AllArgsConstructor
-@Setter
 public class Restaurant {
-	
+
 	@Id
-	private String id;
+	private String restaurantId;
 
 	@NotBlank(message = "Restaurant name is required")
 	private String name;
@@ -29,8 +23,9 @@ public class Restaurant {
 	@NotBlank(message = "Description is required")
 	private String description;
 
-	@NotBlank(message = "Cuisine type is required")
-	private String cuisine;
+	@NotNull(message = "Cuisine list cannot be null")
+	@Valid
+	private List<String> cuisines;
 
 	@NotNull(message = "Address cannot be null")
 	@Valid
@@ -57,11 +52,24 @@ public class Restaurant {
 	@NotNull(message = "Updated timestamp cannot be null")
 	private LocalDateTime updatedAt;
 
+	// Constructor
 	public Restaurant() {
 		LocalDateTime now = LocalDateTime.now();
 		this.createdAt = now;
 		this.updatedAt = now;
 	}
 
-	// Constructors, getters, setters, and other methods (omitted for brevity)
+	// Method to update average rating
+	public void updateAverageRating() {
+		if (!ratings.isEmpty()) {
+			this.averageRating = ratings.stream()
+					.mapToDouble(Rating::getRating)
+					.average()
+					.orElse(0.0);
+		} else {
+			this.averageRating = 0.0;
+		}
+		this.updatedAt = LocalDateTime.now(); // Update the timestamp when ratings change
+	}
 }
+

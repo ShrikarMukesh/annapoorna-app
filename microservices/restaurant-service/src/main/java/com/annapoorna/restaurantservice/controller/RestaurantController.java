@@ -42,6 +42,7 @@ public class RestaurantController {
 
     @PostMapping
     public ResponseEntity<Restaurant> createRestaurant(@Valid @RequestBody Restaurant restaurant) {
+        restaurant.updateAverageRating(); // Automatically calculate average rating
         Restaurant createdRestaurant = restaurantService.createRestaurant(restaurant);
         return new ResponseEntity<>(createdRestaurant, HttpStatus.CREATED);
     }
