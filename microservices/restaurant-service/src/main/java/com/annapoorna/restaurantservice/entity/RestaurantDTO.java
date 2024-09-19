@@ -1,6 +1,6 @@
 package com.annapoorna.restaurantservice.entity;
 
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -8,11 +8,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.List;
 
 @Data
-@Document(collection = "restaurants")
+@Document(collection = "restaurantsv2")
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class RestaurantDTO {
 
     @Id
-    private String id;
+    private String restId;
     private String name;
     private String cloudinaryImageId;
     private String locality;
@@ -69,7 +70,7 @@ public class RestaurantDTO {
     }
 
     @Data
-    public static class BadgesV2 { // Added BadgesV2 class
+    public static class BadgesV2 {
         private EntityBadges entityBadges;
 
         @Data
@@ -79,19 +80,23 @@ public class RestaurantDTO {
             private TextExtendedBadges textExtendedBadges;
 
             @Data
+            @JsonIgnoreProperties(ignoreUnknown = true)
             public static class TextBased {
                 // Add fields for text-based badges if needed
             }
 
             @Data
+            @JsonIgnoreProperties(ignoreUnknown = true)
             public static class ImageBased {
                 // Add fields for image-based badges if needed
             }
 
             @Data
+            @JsonIgnoreProperties(ignoreUnknown = true)
             public static class TextExtendedBadges {
                 // Add fields for extended text badges if needed
             }
         }
     }
+
 }

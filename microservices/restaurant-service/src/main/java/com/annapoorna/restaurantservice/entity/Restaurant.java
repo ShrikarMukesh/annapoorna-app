@@ -17,6 +17,8 @@ public class Restaurant {
 	@Id
 	private String restaurantId;
 
+	private String cloudinaryImageId;
+
 	@NotBlank(message = "Restaurant name is required")
 	private String name;
 

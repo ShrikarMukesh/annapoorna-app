@@ -28,6 +28,7 @@ public class RestaurantController {
         return new ResponseEntity<>(restaurants, HttpStatus.OK);
     }
 
+
     @GetMapping("/{id}")
     public ResponseEntity<Restaurant> getRestaurantById(@PathVariable String id) {
       
