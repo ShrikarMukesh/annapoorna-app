@@ -20,7 +20,7 @@ import java.util.List;
 
 import io.jsonwebtoken.security.Keys;
 
-public class JwtTokenValidatorFilter extends OncePerRequestFilter {
+public class JwtTokenValidator extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request,
@@ -32,10 +32,10 @@ public class JwtTokenValidatorFilter extends OncePerRequestFilter {
        if (jwt !=null){
            jwt = jwt.substring(7);
            try {
-               SecretKey secretKey = Keys.hmacShaKeyFor(JwtConstant.SECRET_KEY.getBytes());
+               SecretKey key = Keys.hmacShaKeyFor(JwtConstant.SECRET_KEY.getBytes());
 
                Claims claims = Jwts.parserBuilder()
-                       .setSigningKey(secretKey)
+                       .setSigningKey(key)
                        .build()
                        .parseClaimsJws(jwt)
                        .getBody();

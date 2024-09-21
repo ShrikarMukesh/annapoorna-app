@@ -12,7 +12,8 @@ import JobsPage from "./pages/JobsPage.jsx";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import LoginForm from "./components/LoginForm.jsx";
-import Dashboard from "./components/Dashboard.jsx";
+import Dashboard from "./components/profile/Dashboard.jsx";
+import Profile from "./components/profile/Profile.jsx";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -20,7 +21,8 @@ const router = createBrowserRouter(
             <Route index element={<HomePage/>}/>
             <Route path = '/jobs' element={<JobsPage/>}/>
             <Route path='/login' element={<LoginForm/>}/>
-            <Route path='/dashboard' element={<Dashboard/>}/>
+            {/*<Route path='/dashboard' element={<Dashboard/>}/>*/}
+            <Route path='/profile' element={<Profile/>}/>
             <Route path='*' element={<NotFound/>}/>
         </Route>
     )

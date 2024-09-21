@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Restaurant from './Restaurant';
+import Restaurant from './Restaurant.jsx';
 import axios from 'axios';
 
 const AllRestaurants = () => {
