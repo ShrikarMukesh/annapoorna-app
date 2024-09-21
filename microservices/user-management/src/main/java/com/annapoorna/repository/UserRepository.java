@@ -1,17 +1,9 @@
 package com.annapoorna.repository;
 
-import java.util.Optional;
-
+import com.annapoorna.model.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.annapoorna.entity.User;
-
-public interface UserRepository extends MongoRepository<User, String> {
-
-	Optional<User> findByEmail(String email);
-	// Additional query methods can be defined here
-
-	Optional<User> findByFirstName(String firstName);
-
-	org.springframework.security.core.userdetails.User findByUsername(String username);
+public interface UserRepository extends MongoRepository<User, Object> {
+    User findByEmail(String email);
+    User findByPhoneNumber(String phoneNumber);
 }
