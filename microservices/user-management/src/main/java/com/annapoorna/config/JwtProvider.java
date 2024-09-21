@@ -1,6 +1,5 @@
 package com.annapoorna.config;
 
-
 import com.annapoorna.constants.JwtConstant;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -12,16 +11,13 @@ import org.springframework.stereotype.Service;
 
 import javax.crypto.SecretKey;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @Service
 public class JwtProvider {
 
-    private final SecretKey key;
-
-    public JwtProvider() {
-        //this.key = Keys.hmacShaKeyFor(JwtConstant.SECRET_KEY.getBytes());
-        this.key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-    }
+    private final SecretKey key = Keys.hmacShaKeyFor(JwtConstant.SECRET_KEY.getBytes());
 
     public String generateToken(Authentication authentication) {
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
@@ -54,5 +50,9 @@ public class JwtProvider {
             auths.add(authority.getAuthority());
         }
         return String.join(",", auths);
+    }
+
+    public String getEmailFromJwtToken(String jwt) {
+        return null;
     }
 }

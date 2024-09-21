@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from '../../public/images/logo.jpg';
+import logo from '../../../public/images/logo.jpg';
 
 const NavBar = ({ isLoggedIn }) => {
     return (

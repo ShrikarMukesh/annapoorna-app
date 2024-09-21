@@ -1,14 +1,13 @@
 package com.annapoorna.constants;
 
-import org.springframework.stereotype.Component;
 
+import org.springframework.stereotype.Component;
 
 @Component
 public class JwtConstant {
 
-    public static String SECRET_KEY = "your_secret_key";
+    public static final String SECRET_KEY = "ajkhakjlzomwnxywtgsfxcdegbjeplqmbxfdgehcbnwkwhwhgcwjwkcwkhcwkjhwkjhwkjhwkjh";
 
-    public static String JWT_HEADER = "Authorization";
-
+    public static final String JWT_HEADER = "Authorization";
 
 }

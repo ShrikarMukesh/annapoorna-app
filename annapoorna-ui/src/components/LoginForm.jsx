@@ -25,8 +25,10 @@ const LoginForm = () => {
             // Store token in localStorage (or session) after login
             localStorage.setItem("authToken", response.data.jwt);
 
+            console.log("JWT Token ", response.data.jwt);
             // Redirect to Home page after successful login
-            navigate("/dashboard");
+            // navigate("/dashboard");
+            navigate("/profile");
         } catch (error) {
             if (error.response) {
                 setError(error.response.data.message || "Login failed.");
