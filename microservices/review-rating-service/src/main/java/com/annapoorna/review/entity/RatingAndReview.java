@@ -17,7 +17,7 @@ import lombok.Setter;
 public class RatingAndReview {
 	
     @Id
-    private String ReviewId; // Using String for id as MongoDB ObjectIds are strings
+    private String ReviewId; // Using String for id as mongodb ObjectIds are strings
     private Long productId;
     private String userId;
     private String username;

@@ -25,12 +25,12 @@ public class RatingAndReviewController {
     @Autowired
     private RatingAndReviewService ratingAndReviewService;
 
-    @GetMapping("/user/{userId}")
+    @GetMapping("/user-id/{userId}")
     public List<RatingAndReview> getRatingsAndReviewsByUserId(@PathVariable String userId) {
         return ratingAndReviewService.getRatingsAndReviewsByUserId(userId);
     }
 
-    @GetMapping("/user/{username}")
+    @GetMapping("/user")
     public List<RatingAndReview> getRatingsAndReviewsByUsername(@RequestParam String username) {
         return ratingAndReviewService.getRatingsAndReviewsByUsername(username);
     }
@@ -39,6 +39,8 @@ public class RatingAndReviewController {
     public RatingAndReview postRatingAndReview(@RequestBody RatingAndReview ratingAndReview) {
         return ratingAndReviewService.postRatingAndReview(ratingAndReview);
     }
+    
+    
 
     // Exception handling
     @ExceptionHandler(Exception.class)

@@ -9,6 +9,7 @@ import com.annapoorna.review.entity.RatingAndReview;
 
 @Repository
 public interface RatingAndReviewRepository extends MongoRepository<RatingAndReview, String> {
+
     List<RatingAndReview> findByUserId(String userId);
     List<RatingAndReview> findByUsername(String username);
 }
